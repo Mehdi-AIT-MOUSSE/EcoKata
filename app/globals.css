@@ -1,26 +1,111 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Main colors */
+  --color-background: var(--background);                 /* Page background */
+  --color-foreground: var(--foreground);                 /* Default text color */
+  --color-card: var(--card);                             /* Card/container background */
+  --color-card-foreground: var(--card-foreground);       /* Text inside cards */
+  --color-popover: var(--popover);                       /* Popovers, modals */
+  --color-popover-foreground: var(--popover-foreground); /* Text in popovers */
+
+  /* Primary / Secondary */
+  --color-primary: var(--primary);                       /* Buttons, links, highlights */
+  --color-primary-foreground: var(--primary-foreground); /* Text on primary elements */
+  --color-secondary: var(--secondary);                   /* Secondary buttons, badges */
+  --color-secondary-foreground: var(--secondary-foreground); /* Text on secondary elements */
+
+  /* Muted / Accent */
+  --color-muted: var(--muted);                           /* Muted background, subtle borders */
+  --color-muted-foreground: var(--muted-foreground);     /* Muted text, placeholders */
+  --color-accent: var(--accent);                         /* Hover, interactive elements */
+  --color-accent-foreground: var(--accent-foreground);   /* Text on accent elements */
+
+  /* Alerts */
+  --color-destructive: var(--destructive);               /* Error / danger */
+  --color-success: var(--success);                       /* Success / positive feedback */
+  --color-success-foreground: var(--success-foreground); /* Text on success */
+
+  /* Borders / UI */
+  --color-border: var(--border);                         /* Borders / dividers */
+  --color-input: var(--input);                           /* Input background */
+  --color-ring: var(--ring);                             /* Focus outlines / rings */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+
+  /* Blue + Green theme */
+  --background: #F9FAFB;                /* Page background */
+  --foreground: #111827;                /* Default text color */
+
+  --card: #FFFFFF;                       /* Card background */
+  --card-foreground: #111827;            /* Card text */
+  --popover: #FFFFFF;                    /* Popover background */
+  --popover-foreground: #111827;         /* Popover text */
+
+  --primary: #2563EB;                    /* Primary blue */
+  --primary-foreground: #FFFFFF;         /* Text on primary */
+  --secondary: #10B981;                  /* Secondary green */
+  --secondary-foreground: #FFFFFF;       /* Text on secondary */
+
+  --muted: #E5E7EB;                      /* Muted background */
+  --muted-foreground: #6B7280;           /* Muted text */
+  --accent: #3B82F6;                     /* Accent hover/interactive */
+  --accent-foreground: #FFFFFF;          /* Text on accent */
+
+  --destructive: #EF4444;                /* Danger / error */
+  --success: #22C55E;                    /* Success */
+  --success-foreground: #FFFFFF;         /* Text on success */
+
+  --border: #D1D5DB;                     /* Borders */
+  --input: #FFFFFF;                      /* Input background */
+  --ring: #2563EB;                       /* Focus ring / outlines */
+}
+
+.dark {
+  /* Dark mode variant */
+  --background: #111827;
+  --foreground: #F9FAFB;
+
+  --card: #1E293B;
+  --card-foreground: #F9FAFB;
+
+  --popover: #1E293B;
+  --popover-foreground: #F9FAFB;
+
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
+  --secondary: #10B981;
+  --secondary-foreground: #FFFFFF;
+
+  --muted: #374151;
+  --muted-foreground: #9CA3AF;
+  --accent: #3B82F6;
+  --accent-foreground: #FFFFFF;
+
+  --destructive: #EF4444;
+  --success: #22C55E;
+  --success-foreground: #FFFFFF;
+
+  --border: #4B5563;
+  --input: #1E293B;
+  --ring: #2563EB;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
