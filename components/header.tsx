@@ -8,9 +8,13 @@ import CartBtn from './cartBtn'
 import FivoBtn from './fivoBtn'
 import { Button } from './ui/button'
 import MobileHeaderMinu from './mobileHeaderMinu'
+import { currentUser } from '@clerk/nextjs/server'
+import { ClerkLoaded, SignedIn, UserButton } from '@clerk/nextjs'
+import SignIn from './signIn'
 
 
-const Header = () => {
+const Header = async() => {
+  const user = await currentUser();
   return (
     <header className="bg-white py-4">
       <Containner className="flex items-center justify-between">
@@ -35,7 +39,12 @@ const Header = () => {
           <SearchBar />
           <CartBtn />
           <FivoBtn />
-          <Button variant="secondary">Sign Up</Button>
+          <ClerkLoaded>
+            <SignedIn>
+              <UserButton /> 
+            </SignedIn>
+            {!user && <SignIn />}
+          </ClerkLoaded>
         </div>
       </Containner>
     </header>

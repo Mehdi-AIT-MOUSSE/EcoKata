@@ -1,4 +1,4 @@
-import { FacebookIcon, InstagramIcon, GithubIcon, LinkedinIcon, MessageCircleIcon, MailIcon } from "lucide-react";
+import { FacebookIcon, InstagramIcon, GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 
 export const HeaderData = [
   { title: "Home", href: "/" },

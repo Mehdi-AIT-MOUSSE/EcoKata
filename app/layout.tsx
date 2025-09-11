@@ -3,10 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { ClerkProvider } from "@clerk/nextjs";
 
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.variable} antialiased`}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
