@@ -16,7 +16,7 @@ import SignIn from './signIn'
 const Header = async() => {
   const user = await currentUser();
   return (
-    <header className="bg-white py-4">
+    <header className="bg-white py-3">
       <Containner className="flex items-center justify-between">
         {/* Logo */}
         <div className='flex items-center gap-4 md:gap-0'>
