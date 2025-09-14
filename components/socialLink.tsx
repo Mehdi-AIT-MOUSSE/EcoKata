@@ -6,8 +6,8 @@ const SocialLinks = () => {
   return (
     <ul className="flex justify-center space-x-5 p-2">
       {SocialData?.map((item,index) => (
-        <li key={index}>
-          <Link href={item.href} target="_blank" className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
+        <li key={index} className="p-2 rounded-full hover:bg-gray-300/50 group transition-colors group">
+          <Link href={item.href} target="_blank" className="text-gray-500 group-hover:text-green-500">
             {<item.icon size={25}/>}
           </Link>
         </li>

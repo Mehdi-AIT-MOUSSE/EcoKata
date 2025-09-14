@@ -31,10 +31,9 @@ const HeroSection = () => {
             <Image
               src="/heroBgImg.png"
               alt="Hero Image"
+              fill
               className="w-lg h-auto rounded-lg shadow-lg"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
+              style={{ objectFit: "cover", objectPosition: "center" }}
             />
           </div>
         </div>

@@ -27,6 +27,8 @@ const Header = async() => {
               alt="EcoKata logo"
               width={120}
               height={120}
+              style={{ height: "auto", width: "120px" }} // Ensures correct aspect ratio and removes legacy props
+              priority // Optional: loads logo faster
             />
           </Link>
         </div>
