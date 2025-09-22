@@ -91,6 +91,14 @@ export const productType = defineType({
       },
     }),
     defineField({
+      name: "rating",
+      title: "Product Rating",
+      type: "number",
+      validation: (Rule) => Rule.min(0).max(5),
+      description: "Product rating from 0 to 5 stars",
+      initialValue: 0,
+    }),
+    defineField({
       name: "isFeatured",
       title: "Featured Product",
       type: "boolean",
